@@ -150,5 +150,10 @@
             </plugin>
         </plugins>
     </build>
-
+    <developers>
+        <developer>
+            <name>Yuri Matheus</name>
+            <email>yurimatheusb@hotmail.com</email>
+        </developer>
+    </developers>
 </project>
