@@ -2,6 +2,7 @@ package br.com.caelum.ingresso.controller;
 
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
+import br.com.caelum.ingresso.model.form.SessaoForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +18,12 @@ public class SessaoController {
     private FilmeDao filmeDao;
 
     @GetMapping("/admin/sessao")
-    public ModelAndView form(@RequestParam("salaId") Integer salaId) {
+    public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
         ModelAndView modelAndView = new ModelAndView("sessao/sessao");
 
         modelAndView.addObject("sala", salaDao.findOne(salaId));
         modelAndView.addObject("filme", filmeDao.findAll());
+        modelAndView.addObject("form", form);
 
         return modelAndView;
     }
