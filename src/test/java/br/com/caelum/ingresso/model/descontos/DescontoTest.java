@@ -1,20 +1,17 @@
-package br.com.caelum.ingresso.model.desconto;
+package br.com.caelum.ingresso.model.descontos;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalTime;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.ingresso.model.Filme;
 import br.com.caelum.ingresso.model.Ingresso;
 import br.com.caelum.ingresso.model.Sala;
 import br.com.caelum.ingresso.model.Sessao;
-import br.com.caelum.ingresso.model.descontos.DescontoParaBancos;
-import br.com.caelum.ingresso.model.descontos.DescontoParaEstudantes;
-import br.com.caelum.ingresso.model.descontos.SemDesconto;
-import org.junit.Assert;
-import org.junit.Before;
 
 public class DescontoTest {
 
