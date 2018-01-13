@@ -2,7 +2,6 @@ package br.com.caelum.ingresso.controller;
 
 import java.util.Optional;
 
-import javax.enterprise.inject.Model;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,7 @@ import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.Sala;
 
-/**
- * Created by nando on 03/03/17.
- */
+
 @Controller
 public class SalaController {
 
@@ -31,8 +28,7 @@ public class SalaController {
 
     @Autowired
     private SessaoDao sessaoDao;
-    
-    
+
     @GetMapping({"/admin/sala", "/admin/sala/{id}"})
     public ModelAndView form(@PathVariable("id")Optional<Integer> id, Sala sala){
         ModelAndView modelAndView = new ModelAndView("sala/sala");
@@ -78,8 +74,8 @@ public class SalaController {
 
         ModelAndView view = new ModelAndView("sessao/lista");
         view.addObject("sala", sala);
-        
-        view.addObject("sessao", sessaoDao.buscaSessaoDaSala(sala));
+
+        view.addObject("sessoes", sessaoDao.buscaSessoesSala(sala));
 
         return view;
     }

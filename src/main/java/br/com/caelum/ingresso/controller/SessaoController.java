@@ -19,38 +19,38 @@ import br.com.caelum.ingresso.model.form.SessaoForm;
 
 @Controller
 public class SessaoController {
-	@Autowired
-	private SalaDao salaDao;
-	@Autowired
-	private FilmeDao filmeDao;
 
-	@Autowired
-	private SessaoDao sessaoDao;
+    @Autowired
+    private SalaDao salaDao;
+    @Autowired
+    private FilmeDao filmeDao;
 
-	@GetMapping("/admin/sessao")
-	public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
-		form.setSalaId(salaId);
+    @Autowired
+    private SessaoDao sessaoDao;
 
-		ModelAndView modelAndView = new ModelAndView("sessao/sessao");
+    @GetMapping("/admin/sessao")
+    public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
+        ModelAndView modelAndView = new ModelAndView("sessao/sessao");
 
-		modelAndView.addObject("sala", salaDao.findOne(salaId));
-		modelAndView.addObject("filmes", filmeDao.findAll());
-		modelAndView.addObject("form", form);
+        modelAndView.addObject("sala", salaDao.findOne(salaId));
+        modelAndView.addObject("filmes", filmeDao.findAll());
+        modelAndView.addObject("form", form);
 
-		return modelAndView;
-	}
+        return modelAndView;
+    }
 
-	@PostMapping(value = "/admin/sessao")
-	@Transactional
-	public ModelAndView salva(@Valid SessaoForm form, BindingResult result) {
-		if (result.hasErrors())
-			return form(form.getSalaId(), form);
+    @PostMapping(value = "/admin/sessao")
+    @Transactional
+    public ModelAndView salva(@Valid SessaoForm form, BindingResult result) {
+        if(result.hasErrors()) return form(form.getSalaId(), form);
 
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/sala/" + form.getSalaId() + "/sessoes");
+        ModelAndView modelAndView = new ModelAndView("redirect:/admin/sala/" + form.getSalaId() + "/sessoes");
 
-		Sessao sessao = form.toSessao(salaDao, filmeDao);
-		sessaoDao.save(sessao);
-		
-		return modelAndView;
-	}
+        Sessao sessao = form.toSessao(salaDao, filmeDao);
+
+        sessaoDao.save(sessao);
+
+        return modelAndView;
+    }
 }
+
