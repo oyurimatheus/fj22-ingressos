@@ -60,7 +60,7 @@ public class SalaController {
     @GetMapping("/admin/salas")
     public ModelAndView lista(){
         ModelAndView modelAndView = new ModelAndView("sala/lista");
-
+        
         modelAndView.addObject("salas", salaDao.findAll());
 
         return modelAndView;

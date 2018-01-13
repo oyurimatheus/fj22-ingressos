@@ -30,7 +30,7 @@
                 <c:forEach items="${bindingResult.getFieldErrors('preco')}" var="error">
 					<span class="text-danger">${error.defaultMessage}</span>
 				</c:forEach>
-            </div>
+<!--             </div> -->
             <button type="submit" class="btn btn-primary">Gravar</button>
         </form>
         </div>
