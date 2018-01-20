@@ -8,15 +8,17 @@ public class Ingresso {
 
 	private Sessao sessao;
 	private BigDecimal preco;
+	private Lugar lugar;
 	
 	/**
 	 * @deprecated hibernate only
 	 */
 	public Ingresso() {}
 	
-	public Ingresso(Sessao sessao, Desconto desconto) {
+	public Ingresso(Sessao sessao, Desconto desconto, Lugar lugar) {
 		this.sessao = sessao;
 		this.preco = desconto.aplicarDescontoSobre(sessao.getPreco());
+		this.lugar = lugar;
 	}
 
 	public Sessao getSessao() {
