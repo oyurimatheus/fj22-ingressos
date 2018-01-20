@@ -14,6 +14,8 @@ import br.com.caelum.ingresso.model.Filme;
 import br.com.caelum.ingresso.model.Sala;
 import br.com.caelum.ingresso.model.Sessao;
 
+
+
 public class GerenciadorDeSessaoTest {
 	private Filme rougueOne;
 	private Sala sala3D;
