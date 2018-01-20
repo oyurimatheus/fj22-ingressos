@@ -16,9 +16,10 @@ public class Ingresso {
 	 */
 	public Ingresso() {}
 	
-	public Ingresso(Sessao sessao, Desconto desconto, Lugar lugar) {
+	public Ingresso(Sessao sessao, TipoDeIngresso tipoDeIngresso, Lugar lugar) {
 		this.sessao = sessao;
-		this.preco = desconto.aplicarDescontoSobre(sessao.getPreco());
+		this.tipoDeIngresso = tipoDeIngresso;
+		this.preco = this.tipoDeIngresso.aplicaDesconto(sessao.getPreco());
 		this.lugar = lugar;
 	}
 
