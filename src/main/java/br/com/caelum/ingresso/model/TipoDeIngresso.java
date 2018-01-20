@@ -20,7 +20,7 @@ public enum TipoDeIngresso {
 		return desconto.aplicarDescontoSobre(valor);
 	}
 
-	public String getDesconto() {
+	public String getDescricao() {
 		return desconto.getDescricao();
 	}
 }
