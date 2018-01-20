@@ -9,6 +9,7 @@ public class Ingresso {
 	private Sessao sessao;
 	private BigDecimal preco;
 	private Lugar lugar;
+	private TipoDeIngresso tipoDeIngresso;
 	
 	/**
 	 * @deprecated hibernate only
